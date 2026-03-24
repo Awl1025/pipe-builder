@@ -1,0 +1,34 @@
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+sshd:x:100:65534::/run/sshd:/usr/sbin/nologin
+postgres:x:101:103:PostgreSQL administrator:/var/lib/postgresql:/bin/bash
+redis:x:102:104::/var/lib/redis:/usr/sbin/nologin
+mysql:x:103:105:MySQL Server:/var/lib/mysql:/bin/false
+nginx:x:104:106::/var/cache/nginx:/usr/sbin/nologin
+node:x:1000:1000:Node.js User:/home/node:/bin/bash
+alice:x:1001:1001:Alice Chen:/home/alice:/bin/bash
+bob:x:1002:1002:Bob Martinez:/home/bob:/bin/bash
+charlie:x:1003:1003:Charlie Kim:/home/charlie:/bin/bash
+dana:x:1004:1004:Dana Okafor:/home/dana:/bin/bash
+eve:x:1005:1005:Eve Johansson:/home/eve:/bin/bash
+frank:x:1006:1006:Frank Wu:/home/frank:/bin/bash
+grace:x:1007:1007:Grace Patel:/home/grace:/bin/bash
+hector:x:1008:1008:Hector Ruiz:/home/hector:/bin/bash
+iris:x:1009:1009:Iris Thompson:/home/iris:/bin/bash
+jack:x:1010:1010:Jack O'Brien:/home/jack:/bin/bash
+kafka:x:1011:1011:Apache Kafka:/opt/kafka:/usr/sbin/nologin
+zookeeper:x:1012:1012:Apache Zookeeper:/opt/zookeeper:/usr/sbin/nologin
+jenkins:x:1013:1013:Jenkins CI:/var/lib/jenkins:/bin/bash
+git:x:1014:1014:Git Version Control:/home/git:/usr/bin/git-shell
+deploy:x:1015:1015:Deploy User:/home/deploy:/bin/bash
+monitor:x:1016:1016:Monitoring Service:/home/monitor:/usr/sbin/nologin
