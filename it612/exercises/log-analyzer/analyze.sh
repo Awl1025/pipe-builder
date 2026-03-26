@@ -16,14 +16,9 @@ echo ""
 # ─────────────────────────────────────────────
 echo "--- Line Counts ---"
 
-# TODO: Count total lines in the log file
-# echo "Total lines: $( ... )"
-
-# TODO: Count lines containing ERROR
-# echo "Error lines: $( ... )"
-
-# TODO: Count lines containing WARN
-# echo "Warning lines: $( ... )"
+echo "Total lines: $(wc -l < server.log)"
+echo "Error lines: $(grep "ERROR" server.log | wc -l)"
+echo "Warning lines: $(grep "WARN" server.log | wc -l)"
 
 echo ""
 
@@ -34,8 +29,7 @@ echo ""
 # ─────────────────────────────────────────────
 echo "--- Unique Error Messages ---"
 
-# TODO: grep ERROR lines, extract the message part, sort, remove duplicates
-# grep ... | awk ... | sort | uniq
+grep "ERROR" server.log | awk '{for(i=4;i<=NF;i++) printf "%s ", $i; print ""}' | sort | uniq
 
 echo ""
 
@@ -46,8 +40,7 @@ echo ""
 # ─────────────────────────────────────────────
 echo "--- Top Endpoints ---"
 
-# TODO: grep for GET or POST, extract method and path, count and rank
-# grep ... | awk ... | sort | uniq -c | sort -rn
+grep -E "GET|POST" server.log | awk '{print $5, $6}' | sort | uniq -c | sort -rn
 
 echo ""
 
@@ -57,8 +50,7 @@ echo ""
 # ─────────────────────────────────────────────
 echo "--- User Logins ---"
 
-# TODO: grep for session lines, extract usernames, count and rank
-# grep ... | grep -o ... | sort | uniq -c | sort -rn
+grep "session created for user=" server.log | grep -o 'user=[a-z]*' | sort | uniq -c | sort -rn
 
 echo ""
 
@@ -67,5 +59,19 @@ echo ""
 # Add a timestamp line so you know when this ran.
 # ─────────────────────────────────────────────
 
-# TODO: Print a line showing when this report was generated
-# echo "Report generated: $( ... )"
+echo "Report generated: $(date)"
+echo
+
+
+# ─────────────────────────────────────────────
+# Extra: Error Rate
+# Calculates the percentage of logs that are errors
+# ─────────────────────────────────────────────
+echo "--- Error Rate ---"
+
+total=$(wc -l < server.log)
+errors=$(grep "ERROR" server.log | wc -l)
+
+echo "Error rate: $((errors * 100 / total))%"
+
+echo ""
