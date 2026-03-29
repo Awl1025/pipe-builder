@@ -12,3 +12,5 @@
 printf "3\n2\n10\n5\n100\n25\n12\n13\n6\n" > input.dat
 
 # Do not modify the above. Start your code here.
+sort -nr input.dat > sorted.dat
+tail -n +2 sorted.dat | head -n 5
